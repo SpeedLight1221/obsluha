@@ -47,22 +47,22 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" FontSize="16">
+                <Label x:Name="kafe" MouseLeftButtonUp="Surovina_click" Grid.Row="0" Grid.Column="0" Content="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" FontSize="16">
                     <Label.Background>
                         <ImageBrush ImageSource="img/suroviny-kafe.png" Stretch="Uniform"/>
                     </Label.Background>
                 </Label>
-                <Label Grid.Row="0" Grid.Column="1" Content="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" FontSize="16">
+                <Label x:Name="mleko"  MouseLeftButtonUp="Surovina_click" Grid.Row="0" Grid.Column="1" Content="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" FontSize="16">
                     <Label.Background>
                         <ImageBrush ImageSource="img/suroviny-mleko.png" Stretch="Uniform"/>
                     </Label.Background>
                 </Label>
-                <Label Grid.Row="1" Grid.Column="0" Content="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" FontSize="16">
+                <Label x:Name="slehacka"  MouseLeftButtonUp="Surovina_click" Grid.Row="1" Grid.Column="0" Content="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" FontSize="16">
                     <Label.Background>
                         <ImageBrush ImageSource="img/suroviny-slehacka.png" Stretch="Uniform"/>
                     </Label.Background>
                 </Label>
-                <Label Grid.Row="1" Grid.Column="1" Content="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" FontSize="16">
+                <Label x:Name="led" MouseLeftButtonUp="Surovina_click" Grid.Row="1" Grid.Column="1" Content="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" FontSize="16">
                     <Label.Background>
                         <ImageBrush ImageSource="img/suroviny-led.png" Stretch="Uniform"/>
                     </Label.Background>
@@ -95,11 +95,15 @@
                 </Label>
                 <Image Source="img/napenovac.png" Margin="-5,47,94,65"/>
                 <Image Source="img/hrnek.png" Margin="110,5,48,131"/>
-                <Image Source="img/hrnek.png" Margin="78,2,92,129"/>
+                <Image Source="img/hrnek.png" Margin="76,3,94,128"/>
                 <Image Source="img/hrnek.png" Margin="29,-9,126,126"/>
                 <Image Source="img/sklenice.png" Margin="142,4,23,136"/>
 
             </Grid>
+            <StackPanel Grid.Column="3">
+                <Image  Source="img/telefon.png" Height="30"></Image>
+                <Image Source="img/recepty.png" Height="90"></Image>
+            </StackPanel>
 
 
         </Grid>

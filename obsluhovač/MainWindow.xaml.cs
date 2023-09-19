@@ -24,5 +24,17 @@ namespace obsluhovač
         {
             InitializeComponent();
         }
+
+        private void Surovina_click(object sender, MouseButtonEventArgs e)
+        {
+            Image sur = new Image()
+            {
+                Source = new BitmapImage(new Uri("img/suroviny-" + (sender as Label).Name + ".png", UriKind.Relative))
+            };
+            priprava.Children.Add(sur);
+        }
+
+      
+       
     }
 }
