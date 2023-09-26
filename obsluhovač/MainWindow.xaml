@@ -84,9 +84,9 @@
                     <ImageBrush ImageSource="img/pripravna.png"/>
                 </Grid.Background>
             </Grid>
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" x:Name="Kavovar">
                 <Image Source="img/kavovar.png" Margin="12,37,11,5"/>
-                <Image Source="img/logo.png" Margin="72,33,60,103"/>
+                <Image MouseLeftButtonUp="UvarKafe" Source="img/logo.png" Margin="72,33,60,103"/>
 
                 <Label Content="5" Margin="44,104,94,17" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="LightGray">
                     <Label.Background>
@@ -94,10 +94,10 @@
                     </Label.Background>
                 </Label>
                 <Image Source="img/napenovac.png" Margin="-5,47,94,65"/>
-                <Image Source="img/hrnek.png" Margin="110,5,48,131"/>
-                <Image Source="img/hrnek.png" Margin="76,3,94,128"/>
-                <Image Source="img/hrnek.png" Margin="29,-9,126,126"/>
-                <Image Source="img/sklenice.png" Margin="142,4,23,136"/>
+                <Image x:Name="stredni" MouseLeftButtonUp="Hrnek_click" Source="img/hrnek.png" Margin="110,5,48,131"/>
+                <Image x:Name="maly" MouseLeftButtonUp="Hrnek_click" Source="img/hrnek.png" Margin="76,3,94,128"/>
+                <Image x:Name="velky" MouseLeftButtonUp="Hrnek_click" Source="img/hrnek.png" Margin="29,-9,126,126"/>
+                <Image x:Name="sklenice" MouseLeftButtonUp="Hrnek_click" Source="img/sklenice.png" Margin="142,4,23,136"/>
 
             </Grid>
             <StackPanel Grid.Column="3">
