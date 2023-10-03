@@ -30,7 +30,7 @@
                 <ImageBrush ImageSource="img/pozadi.png"/>
             </Grid.Background>
         </Grid>
-        <Grid Grid.Row="2" Background="Yellow"/>
+        <Grid x:Name="pas" Grid.Row="2" Background="LightGreen"/>
         <Grid Grid.Row="3" Background="LightGray" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>

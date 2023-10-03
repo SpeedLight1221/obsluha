@@ -32,10 +32,7 @@ namespace obsluhovač
             recepty[5] = new List<string> { "sklenice", "kafe", "mleko", "led" };
 
 
-            foreach (List<string> item in recepty)
-            {
-                item.Sort();
-            }
+
 
 
 
@@ -83,82 +80,97 @@ namespace obsluhovač
             hrnekVKavovaru = true;
         }
 
+        private bool najdiKafe(int r)
+        {
+
+
+            if (recepty[r].Count != PripravaList.Count)
+            {
+                return false;
+            }
+
+
+            PripravaList.Sort();
+            recepty[r].Sort();
+            for (int i = 0; i < PripravaList.Count; i++)
+            {
+                if (PripravaList[i] != recepty[r][i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+
+
 
         private void UvarKafe(object sender, MouseButtonEventArgs e)
         {
-            bool nasel = true;
+
 
             priprava.Children.Clear();
             naPriprave = 0;
             Kavovar.Children.Remove(hrnek);
             hrnekVKavovaru = false;
 
-            PripravaList.Sort();
+            int nalezeneKafe = 6;
 
 
-
-            for (int recept = 0; recept < 6; recept++)
+            for (int r = 0; r < 6; r++)
             {
-                nasel = true;
-                if (recepty[recept].Count != PripravaList.Count)
+
+ 
+
+                if (najdiKafe(r))
                 {
-                    continue;
+                    nalezeneKafe = r;
+
                 }
 
-
-                for (int i = 0; i < PripravaList.Count; i++)
-                {
-                    if (PripravaList[i] != recepty[recept][i])
-                    {
-                        nasel = false;
-                        break;
-                    }
-                }
-                Image kafe = new Image()
-                {
-                    Margin = new Thickness(0),
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Source = new BitmapImage(new Uri("obr/nezname.png", UriKind.Relative))
-                };
-                if (nasel)
-                {
-                    //kafe na pas
-
-                    switch (recept)
-                    {
-                        case 0:
-                            kafe.Source = new BitmapImage(new Uri("obr/kafe-male_espresso.png", UriKind.Relative));
-                            break;
-                        case 1:
-                            kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_s_mlekem.png", UriKind.Relative));
-                            break;
-                        case 2:
-                            kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_se_slehackou.png", UriKind.Relative));
-                            break;
-                        case 3:
-                            kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_macchiato.png", UriKind.Relative));
-                            break;
-                        case 4:
-                            kafe.Source = new BitmapImage(new Uri("obr/kafe-capuccino.png", UriKind.Relative));
-                            break;
-                        case 5:
-                            kafe.Source = new BitmapImage(new Uri("obr/kafe-ledova_kava.png", UriKind.Relative));
-                            break;
-
-                    }
-
-                  
-                }
-                kafe = new Image()
-                {
-                    Margin = new Thickness(0),
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Source = new BitmapImage(new Uri("obr/nezname.png", UriKind.Relative))
-                };
-                pas.Children.Add(kafe); 
+               
             }
+
+            Image kafe = new Image()
+            {
+                Margin = new Thickness(0),
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Width = 40,
+                Height = 40,
+               
+            };
+
+            switch (nalezeneKafe)
+            {
+                case 0:
+                    kafe.Source = new BitmapImage(new Uri("obr/kafe-male_espresso.png", UriKind.Relative));
+                    break;
+                case 1:
+                    kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_se_slehackou.png", UriKind.Relative));
+                    break;
+                case 2:
+                    kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_s_mlekem.png", UriKind.Relative));
+                    break;
+                case 3:
+                    kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_macchiato.png", UriKind.Relative));
+                    break;
+                case 4:
+                    kafe.Source = new BitmapImage(new Uri("obr/kafe-capuccino.png", UriKind.Relative));
+                    break;
+                case 5:
+                    kafe.Source = new BitmapImage(new Uri("obr/kafe-ledova_kava.png", UriKind.Relative));
+                    break;
+                case 6:
+                    kafe.Source = new BitmapImage(new Uri("obr/nezname.png", UriKind.Relative));
+                    break;
+
+            }
+            MessageBox.Show(kafe.Source.ToString());
+            pas.Children.Add(kafe); //pojmenovat grid
+            PripravaList.Clear();
+           
 
 
         }
