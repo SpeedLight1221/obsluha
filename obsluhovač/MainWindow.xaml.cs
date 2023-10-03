@@ -72,7 +72,7 @@ namespace obsluhovač
 
             int misto = rnd.Next(1, 7);
             //if obsazeno
-
+            
             Grid.SetColumn(z,misto);
             Grid.SetRow(z, 0);
         }
