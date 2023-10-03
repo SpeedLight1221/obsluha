@@ -137,37 +137,36 @@ namespace obsluhovač
                 Margin = new Thickness(0),
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left,
-                Width = 40,
-                Height = 40,
+       
                
             };
 
             switch (nalezeneKafe)
             {
                 case 0:
-                    kafe.Source = new BitmapImage(new Uri("obr/kafe-male_espresso.png", UriKind.Relative));
+                    kafe.Source = new BitmapImage(new Uri("img/kafe-male_espresso.png", UriKind.Relative));
                     break;
                 case 1:
-                    kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_se_slehackou.png", UriKind.Relative));
+                    kafe.Source = new BitmapImage(new Uri("img/kafe-espresso_se_slehackou.png", UriKind.Relative));
                     break;
                 case 2:
-                    kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_s_mlekem.png", UriKind.Relative));
+                    kafe.Source = new BitmapImage(new Uri("img/kafe-espresso_s_mlekem.png", UriKind.Relative));
                     break;
                 case 3:
-                    kafe.Source = new BitmapImage(new Uri("obr/kafe-espresso_macchiato.png", UriKind.Relative));
+                    kafe.Source = new BitmapImage(new Uri("img/kafe-espresso_macchiato.png", UriKind.Relative));
                     break;
                 case 4:
-                    kafe.Source = new BitmapImage(new Uri("obr/kafe-capuccino.png", UriKind.Relative));
+                    kafe.Source = new BitmapImage(new Uri("img/kafe-capuccino.png", UriKind.Relative));
                     break;
                 case 5:
-                    kafe.Source = new BitmapImage(new Uri("obr/kafe-ledova_kava.png", UriKind.Relative));
+                    kafe.Source = new BitmapImage(new Uri("img/kafe-ledova_kava.png", UriKind.Relative));
                     break;
                 case 6:
-                    kafe.Source = new BitmapImage(new Uri("obr/nezname.png", UriKind.Relative));
+                    kafe.Source = new BitmapImage(new Uri("img/kafe-nezname.png", UriKind.Relative));
                     break;
 
             }
-            MessageBox.Show(kafe.Source.ToString());
+            
             pas.Children.Add(kafe); //pojmenovat grid
             PripravaList.Clear();
            
