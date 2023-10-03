@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace obsluhovač
 {
@@ -20,7 +21,9 @@ namespace obsluhovač
     /// </summary>
     public partial class MainWindow : Window
     {
+        int naPriprave = 0;
         List<string>[] recepty = new List<string>[6];
+        DispatcherTimer timer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
@@ -31,14 +34,51 @@ namespace obsluhovač
             recepty[4] = new List<string> { "velky", "kafe", "mleko", "pena" };
             recepty[5] = new List<string> { "sklenice", "kafe", "mleko", "led" };
 
-
-
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timer.Tick += posunPasu;
+            timer.Start();
 
 
 
 
         }
-        int naPriprave = 0;
+
+        int pruchodu = 0;
+        private void posunPasu(object? sender, EventArgs e)
+        {
+            foreach (Image kafe in pas.Children)
+            {
+                kafe.Margin = new Thickness(kafe.Margin.Left + 1, 0, 0, 0);
+            }
+
+            if(pruchodu ==100)
+            {
+                posadZakaznika();
+
+                pruchodu = 0;
+            }
+            pruchodu++;
+        }
+
+        int[] obsazeno = new int[6];
+        private void posadZakaznika()
+        {
+            Image z = new Image();
+            Random rnd = new Random();
+
+
+            z.Source = new BitmapImage(new Uri($"img/clovek{rnd.Next(1, 10)}.png", UriKind.Relative));
+            Bar.Children.Add(z);
+
+            int misto = rnd.Next(1, 7);
+            //if obsazeno
+
+            Grid.SetColumn(z,misto);
+            Grid.SetRow(z, 0);
+        }
+
+
+
 
         //100,119
         List<string> PripravaList = new List<string>();
@@ -121,7 +161,7 @@ namespace obsluhovač
             for (int r = 0; r < 6; r++)
             {
 
- 
+
 
                 if (najdiKafe(r))
                 {
@@ -129,7 +169,7 @@ namespace obsluhovač
 
                 }
 
-               
+
             }
 
             Image kafe = new Image()
@@ -137,8 +177,8 @@ namespace obsluhovač
                 Margin = new Thickness(0),
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Left,
-       
-               
+
+
             };
 
             switch (nalezeneKafe)
@@ -166,10 +206,10 @@ namespace obsluhovač
                     break;
 
             }
-            
+
             pas.Children.Add(kafe); //pojmenovat grid
             PripravaList.Clear();
-           
+
 
 
         }

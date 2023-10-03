@@ -22,13 +22,30 @@
             <Label Content="zavřeno" HorizontalContentAlignment="Right" Width="105" Foreground="LightGray" FontSize="20" FontWeight="Bold"/>
 
         </StackPanel>
-        <Grid Grid.Row="1">
+        <Grid x:Name="Bar" Grid.Row="1">
 
 
 
             <Grid.Background>
                 <ImageBrush ImageSource="img/pozadi.png"/>
             </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="122*"></RowDefinition>
+                <RowDefinition Height="41*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="119*"></ColumnDefinition>
+                <ColumnDefinition Width="99*"></ColumnDefinition>
+                <ColumnDefinition Width="102*"></ColumnDefinition>
+                <ColumnDefinition Width="101*"></ColumnDefinition>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
+                <ColumnDefinition Width="79*"></ColumnDefinition>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+
         </Grid>
         <Grid x:Name="pas" Grid.Row="2" Background="LightGreen"/>
         <Grid Grid.Row="3" Background="LightGray" >
